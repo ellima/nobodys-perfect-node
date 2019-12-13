@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf8">
+    <title>Nobody's perfect!</title>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <script src="./js/global.js"></script>
+</head>
+<body>
+    <h3>Du bist Spielleiter*In&#128578</h3>
+    <h4>Bitte Frage eingeben...</h4>
+    <textarea id="inputQuestion" style="resize: none; width: 100%; max-width: 500px" rows="5" placeholder="Bitte die Frage eingeben..."></textarea>
+    <button id="sendit" type="button" onclick="sendIt()">Eingeben</button>
+    <script>
+        function sendIt(){
+            var toSend = encodeURIComponent(document.getElementById("inputQuestion").value);
+            ifAdmin(function(){
+                apiRequestJson("inputQuestion", toSend, function(res){
+                    window.location.href = "waitforquestion.html";
+                })
+            });
+        };
+    </script>
+</body>
+</html>

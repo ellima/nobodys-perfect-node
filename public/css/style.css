@@ -1,0 +1,7 @@
+.justAdmin{
+    display: none;
+}
+
+::placeholder {
+    color: black;
+}

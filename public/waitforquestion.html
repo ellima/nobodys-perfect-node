@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf8">
+    <title>Nobody's perfect!</title>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <script src="./js/global.js"></script>
+</head>
+<body>
+    <h4 id="ueberschrift">Ich hoffe du hast Zeit zu warten<span id="dots">...</span>
+    <br/>(Du kannst aber auch schon mal deine Antwort eingeben, damit du sie nicht vergisst&#x1F609)</h4>
+    <h5 id="thequestion" style="color: grey;">Hier steht gleich die Frage</h5>
+    <div>
+        <p id="adminHint" class="justAdmin"></p>
+        <textarea id="inputAnswer" style="resize: none; width: 100%; max-width: 500px;" rows="5" placeholder="Hier bitte die Antwort eingeben..."></textarea>
+    </div><br/>
+    <button id="sendit" class="justAdmin" type="button" onclick="sendIt()">Eingeben</button>
+    <script>
+        ifAdmin(function(){
+            document.getElementById("inputAnswer").placeholder = "Bitte die korrekte Antwort eintragen...";
+            document.getElementById("inputAnswer").style.backgroundColor = "lightgreen";
+            document.getElementById("adminHint").style.display = "block";
+            document.getElementById("adminHint").textContent = "Du bist Spielleiter*In, also bitte die korrekte Antwort eintragen.";
+        });
+        apiRequestJson("listenQuestion", null, function(res){
+            document.getElementById("ueberschrift").textContent = "Bitte beantworten:";
+            document.getElementById("ueberschrift").style.color = "black";
+            document.getElementById("thequestion").textContent = decodeURIComponent(res);
+
+            document.getElementById("sendit").style.display = "block";
+        });
+
+        function sendIt() {
+            var answer = encodeURIComponent(document.getElementById("inputAnswer").value);
+            var ownName = getCookie("myname");
+            apiRequestJson("startAnswer", [ownName, answer], function(){
+                window.location.href = "waitforanswers.html";
+            });
+        }
+    </script>
+</body>
+</html>

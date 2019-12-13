@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf8">
+    <title>Nobody's perfect!</title>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <script src="./js/global.js"></script>
+</head>
+<body>
+    <h3>Wilkommen :)</h3>
+    <p>Bitte gib deinen Namen ein:</p>
+    <input id="name_entry"/>
+    <button id="button" type="button" onclick="request()">Los geht's!</button>
+    <br/>
+    <p id="name_out"></p>
+    <script>
+        function request(){
+            var nameEntry = encodeURIComponent(document.getElementById("name_entry").value);
+            apiRequestJson("startPlayers", nameEntry, function(res){
+                var response = JSON.parse(res)[0];
+                if (response["PlayerID"] == -1) {
+                    document.getElementById("name_out").innerHTML = "Name schon vergeben. Bitte neuen wählen.";
+                } else {
+                    document.cookie = "myid=" + response["PlayerID"] + ";path=/";
+                    document.cookie = "myname=" + response["Name"] + ";path=/";
+                    document.cookie = "admin=" + response["Admin"] + ";path=/";
+
+                    window.location.href = "waitplayers.html";
+                }
+            });
+        }
+    </script>
+</body>
+</html>
