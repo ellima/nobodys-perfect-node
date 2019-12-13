@@ -1,11 +1,11 @@
-Nobody's Perfect - NodeJS Web Applacation
+Nobody's Perfect - NodeJS Web Application
 =========================================
 
-The board game Nobody's perfect usually requires a lot of paperwork which needs to be passed around, returned and so on. Sometimes it's hard to read someone else's handwriting. This app provides a server with a HTML interface you can connect to with any browser from every device you wish.
+The board game Nobody's perfect usually requires a lot of paperwork which needs to be passed around, returned and so on. Sometimes it is also hard to read someone else's handwriting. This app provides a server with an HTML interface to type in the question and answers. These will be displayed according to your role as game master or as competitor. You can connect to it with any browser from any device you wish.
 
 ## Installation and Start
 
-1. Download this project and extract .zip file to a directory you wish to place the server in. Creating a designated directory is recommended.
+1. Download this project and extract the .zip file into a directory of your choice for your server. Creating a designated directory is recommended.
 
 2. [Download and install NodeJS](https://nodejs.org/) for your OS.
 
@@ -14,7 +14,7 @@ The board game Nobody's perfect usually requires a lot of paperwork which needs 
     ~$ cd /path/to/the/project/
     ```
 
-4. Install the node dependencies with npm (automatically installed with NodeJS):
+4. Install node dependencies with npm (automatically installed with NodeJS):
     ```
     ~$ npm install
     ```
@@ -25,7 +25,7 @@ The board game Nobody's perfect usually requires a lot of paperwork which needs 
     ~$ node app.js
     ```
 
-The server should now be accesible via the IP address which is diplayed in the outout after the launch of the app. Type in the address in a browser on a device in the same network as your server and you should see a web page asking for your player name. Have fun :)
+The server should now be accesible via the IP address which is displayed in the output after launching the app. Type the address into a browser on a device in the same network as your server and you should see a web page asking for your player name. Have fun :)
 
 ## Remarks
 

@@ -1,7 +1,7 @@
 {
   "name": "nobodys_perfect",
   "version": "0.0.1",
-  "description": "Web app to spare paperwork during a game of the board game Nobody'sperfect",
+  "description": "Web app to replace paperwork during a game of the board game 'Nobody's perfect'.",
   "main": "app.js",
   "dependencies": {
     "express": ">=4.17.1",
