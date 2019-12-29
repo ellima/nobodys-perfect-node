@@ -1,5 +1,6 @@
 // global scripts
 
+// gets cookie by cookie's name
 function getCookie(name){
   var result = "";
   var clist = document.cookie.split(";")
@@ -13,7 +14,7 @@ function getCookie(name){
   return result;
 }
 
-
+// opens a GET request, returns strinified JSON to callback
 function apiRequestJson(key, option, callback) {
   if (typeof(option) != "string" && option != null){
     option = option[0] + "&altopt=" + option[1];
@@ -28,7 +29,7 @@ function apiRequestJson(key, option, callback) {
   };
 }
 
-
+// calls callback function if browser is admin
 function ifAdmin(callback) {
   var state = getCookie("admin");
   if (state.toString() == "1") {
